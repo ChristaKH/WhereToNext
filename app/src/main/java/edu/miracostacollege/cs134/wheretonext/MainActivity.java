@@ -63,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
         collegesListAdapter = new CollegeListAdapter(this,R.layout.activity_college_details,collegesList);
 
         // DONE:  Set the list view to use the list adapter
-        //collegesListView.setAdapter(collegesListAdapter);
-        collegesListView.setAdapter( new ArrayAdapter<College>(this, android.R.layout.simple_list_item_1, collegesList ));
+        collegesListView.setAdapter( collegesListAdapter);
     }
 
     public void viewCollegeDetails(View view) {
