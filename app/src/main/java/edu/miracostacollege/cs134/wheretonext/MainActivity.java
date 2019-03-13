@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RatingBar;
@@ -62,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
         collegesListAdapter = new CollegeListAdapter(this,R.layout.activity_college_details,collegesList);
 
         // DONE:  Set the list view to use the list adapter
-        collegesListView.setAdapter(collegesListAdapter);
-
+        //collegesListView.setAdapter(collegesListAdapter);
+        collegesListView.setAdapter( new ArrayAdapter<College>(this, android.R.layout.simple_list_item_1, collegesList ));
     }
 
     public void viewCollegeDetails(View view) {
