@@ -56,10 +56,8 @@ public class JSONLoader {
                 allCollegesList.add(college);
             }
 
-
-
         } catch (JSONException e) {
-            Log.e("Flag Quiz", e.getMessage());
+            Log.e("WhereToNext", e.getMessage());
         }
 
         return allCollegesList;
