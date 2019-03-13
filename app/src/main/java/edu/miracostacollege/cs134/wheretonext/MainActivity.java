@@ -88,6 +88,17 @@ public class MainActivity extends AppCompatActivity {
         int population = Integer.parseInt(populationEditText.getText().toString());
         double tuition = Double.parseDouble(tuitionEditText.getText().toString());
         long rating = (long)collegeRatingBar.getRating();
+         College newCollege = new College();
+         newCollege.setName(name);
+         newCollege.setPopulation(population);
+         newCollege.setTuition(tuition);
+         newCollege.setRating(rating);
+        collegesList.add(newCollege);
+
+        nameEditText.setText("");
+        populationEditText.setText("");
+        tuitionEditText.setText("");
+        collegeRatingBar.setRating(0);
     }
 
 }
