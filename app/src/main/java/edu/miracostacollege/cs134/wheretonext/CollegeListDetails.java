@@ -47,4 +47,5 @@ public class CollegeListDetails extends AppCompatActivity {
         collegeNameTextView.setText(name);
         collegeRatingBar.setRating(rating);
     }
+
 }

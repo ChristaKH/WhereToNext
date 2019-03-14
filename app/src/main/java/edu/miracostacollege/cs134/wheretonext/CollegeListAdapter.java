@@ -30,8 +30,8 @@ public class CollegeListAdapter extends ArrayAdapter<College> {
     private Context mContext;
     private List<College> mCollegesList = new ArrayList<>();
     private int mResourceId;
-    private NumberFormat numFormat = NumberFormat.getInstance(Locale.US);
-    private NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
+    //private NumberFormat numFormat = NumberFormat.getInstance(Locale.US);
+    //private NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
 
     /**
      * Creates a new <code>CollegeListAdapter</code> given a mContext, resource id and list of colleges.
@@ -70,7 +70,7 @@ public class CollegeListAdapter extends ArrayAdapter<College> {
         College focusedCollege = mCollegesList.get(pos);
 
         // Fill the view
-        ImageView collegeDetailsImageView = view.findViewById(R.id.collegeDetailsImageView);
+       /* ImageView collegeDetailsImageView = view.findViewById(R.id.collegeDetailsImageView);
         TextView collegeDetailsNameTextView = view.findViewById(R.id.collegeDetailsNameTextView);
         TextView collegeDetailsPopulationTextView = view.findViewById(R.id.collegeDetailsPopulationTextView);
         TextView collegeDetailsTuitionTextView = view.findViewById(R.id.collegeDetailsTuitionTextView);
@@ -80,7 +80,14 @@ public class CollegeListAdapter extends ArrayAdapter<College> {
         collegeDetailsNameTextView.setText(focusedCollege.getName());
         collegeDetailsPopulationTextView.setText(numFormat.format(focusedCollege.getPopulation()));
         collegeDetailsTuitionTextView.setText(currency.format(focusedCollege.getTuition()));
-        collegeDetailsRatingBar.setRating((float)focusedCollege.getRating());
+        collegeDetailsRatingBar.setRating((float)focusedCollege.getRating());*/
+
+        ImageView collegeImageView = view.findViewById(R.id.collegeImageView);
+        TextView collegeNameTextView = view.findViewById(R.id.collegeNameTextView);
+        RatingBar collegeRatingBar = view.findViewById(R.id.collegeRatingBar);
+
+        collegeNameTextView.setText(focusedCollege.getName());
+        collegeRatingBar.setRating((long)focusedCollege.getRating());
 
         // Load the image dynamically
         AssetManager am = mContext.getAssets();
@@ -89,7 +96,7 @@ public class CollegeListAdapter extends ArrayAdapter<College> {
             Drawable image = Drawable.createFromStream(stream, focusedCollege.getImageName());
 
             // Put image into image view
-            collegeDetailsImageView.setImageDrawable(image);
+            collegeImageView.setImageDrawable(image);
         } catch(IOException e){
             Log.e("Where To Next", e.getMessage());
         }

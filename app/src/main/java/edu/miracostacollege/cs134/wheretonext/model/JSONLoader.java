@@ -51,7 +51,6 @@ public class JSONLoader {
                 college.setTuition(Double.parseDouble(collegeJSON.getString("Tuition")));
                 college.setRating(Double.parseDouble(collegeJSON.getString("Rating")));
                 college.setImageName(collegeJSON.getString("ImageName"));
-
                 // DONE: Add each college object to the list
                 allCollegesList.add(college);
             }

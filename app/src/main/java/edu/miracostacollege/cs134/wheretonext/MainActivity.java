@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -60,10 +61,16 @@ public class MainActivity extends AppCompatActivity {
 
         // DONE:  Connect the list adapter with the list
         collegesListView = findViewById(R.id.collegeListView);
-        collegesListAdapter = new CollegeListAdapter(this,R.layout.activity_college_details,collegesList);
+        collegesListAdapter = new CollegeListAdapter(this,R.layout.activity_college_list_details,collegesList);
 
         // DONE:  Set the list view to use the list adapter
         collegesListView.setAdapter( collegesListAdapter);
+        collegesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                viewCollegeDetails(view);
+            }
+        });
     }
 
     public void viewCollegeDetails(View view) {
@@ -83,22 +90,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void addCollege(View view) {
 
-        // TODO: Implement the code for when the user clicks on the addCollegeButton
-        String name = nameEditText.getText().toString();
-        int population = Integer.parseInt(populationEditText.getText().toString());
-        double tuition = Double.parseDouble(tuitionEditText.getText().toString());
-        long rating = (long)collegeRatingBar.getRating();
-         College newCollege = new College();
-         newCollege.setName(name);
-         newCollege.setPopulation(population);
-         newCollege.setTuition(tuition);
-         newCollege.setRating(rating);
-        collegesList.add(newCollege);
+        // DONE: Implement the code for when the user clicks on the addCollegeButton
+        if(nameEditText.getText().toString().equals("") || populationEditText.getText().toString().equals("")
+            || tuitionEditText.getText().toString().equals("")){
+            // Do nothing
+        } else {
+            String name = nameEditText.getText().toString();
+            int population = Integer.parseInt(populationEditText.getText().toString());
+            double tuition = Double.parseDouble(tuitionEditText.getText().toString());
+            long rating = (long) collegeRatingBar.getRating();
+            College newCollege = new College();
+            newCollege.setName(name);
+            newCollege.setPopulation(population);
+            newCollege.setTuition(tuition);
+            newCollege.setRating(rating);
+            collegesList.add(newCollege);
 
-        nameEditText.setText("");
-        populationEditText.setText("");
-        tuitionEditText.setText("");
-        collegeRatingBar.setRating(0);
+            nameEditText.setText("");
+            populationEditText.setText("");
+            tuitionEditText.setText("");
+            collegeRatingBar.setRating(0);
+        }
     }
 
 }

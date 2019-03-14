@@ -9,31 +9,58 @@
 
     <ImageView
         android:id="@+id/collegeImageView"
-        android:layout_width="115dp"
-        android:layout_height="0dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="41dp" />
+        android:layout_width="100dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/collegeNameTextView"
         android:layout_width="222dp"
-        android:layout_height="0dp"
+        android:layout_height="37dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toEndOf="@+id/collegeImageView"
-        tools:layout_editor_absoluteY="41dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <RatingBar
         android:id="@+id/collegeRatingBar"
-        android:layout_width="237dp"
-        android:layout_height="0dp"
+        style="@style/Widget.AppCompat.RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:isIndicator="true"
         android:numStars="@integer/maxStars"
         android:rating="0"
+        android:scaleX=".25"
+        android:scaleY=".25"
         android:stepSize=".5"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="77dp" />
+        android:transformPivotX="@dimen/starPivot"
+        android:transformPivotY="@dimen/starPivot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.253"
+        app:layout_constraintStart_toEndOf="@+id/collegeImageView"
+        app:layout_constraintTop_toBottomOf="@+id/collegeNameTextView"
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>
